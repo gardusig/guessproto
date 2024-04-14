@@ -1,28 +1,26 @@
 syntax = "proto3";
 
-package pandora_service;
-
 option go_package = "generated/go";
 
-service PandoraService {
+service GuessService {
   rpc GuessNumber (GuessNumberRequest) returns (GuessNumberResponse) {}
-  rpc OpenBox (LockedPandoraBox) returns (OpenedPandoraBox) {}
+  rpc OpenBox (LockedBox) returns (OpenedBox) {}
 }
 
 message GuessNumberRequest {
-  int64 number = 1;
+  int64 guess = 1;
   uint32 level = 2;
 }
 
 message GuessNumberResponse {
   string result = 1;
-  optional LockedPandoraBox lockedPandoraBox = 2;
+  optional LockedBox lockedBox = 2;
 }
 
-message LockedPandoraBox {
+message LockedBox {
   string encryptedMessage = 1;
 }
 
-message OpenedPandoraBox {
+message OpenedBox {
   string message = 1;
 }

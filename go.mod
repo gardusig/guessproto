@@ -1,4 +1,4 @@
-module github.com/gardusig/pandoraproto
+module github.com/gardusig/guessproto
 
 go 1.21
 
